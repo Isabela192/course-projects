@@ -1,7 +1,10 @@
-import re
+from __future__ import annotations
+
 from django.db import models
 
 # Create your models here.
+
+
 class Aluno(models.Model):
     nome = models.CharField(max_length=50)
     sobrenome = models.CharField(max_length=50)
@@ -12,16 +15,19 @@ class Aluno(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Curso(models.Model):
     NIVEL = (
-        ("B", "Básico"),
-        ("I", "Intermediário"),
-        ("A", "Avançado"),
+        ('B', 'Básico'),
+        ('I', 'Intermediário'),
+        ('A', 'Avançado'),
     )
-    nome = models.CharField(max_length=50)
+    codigo_curso = models.CharField(max_length=50)
     descricao = models.CharField(max_length=100)
-    nivel = models.CharField(max_length=1, choices=NIVEL, blank=False, null=False, default="B") 
-    
+    nivel = models.CharField(
+        max_length=1, choices=NIVEL,
+        blank=False, null=False, default='B',
+    )
+
     def __str__(self):
-        return self.descricao   
-    
+        return self.descricao
