@@ -20,12 +20,14 @@ from django.urls import include
 from django.urls import path
 from escola.views import AlunosViewSet
 from escola.views import CursosViewSet
+from escola.views import MatriculaViewSet
 from rest_framework import routers
 
 
 router = routers.DefaultRouter()
 router.register('alunos', AlunosViewSet, basename='Alunos')
 router.register('cursos', CursosViewSet, basename='Cursos')
+router.register('matriculas', MatriculaViewSet, basename='Matricula')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),

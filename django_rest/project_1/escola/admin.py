@@ -3,6 +3,7 @@ from __future__ import annotations
 from django.contrib import admin
 from escola.models import Aluno
 from escola.models import Curso
+from escola.models import Matricula
 # Register your models here.
 
 
@@ -23,3 +24,11 @@ class Cursos(admin.ModelAdmin):
 
 
 admin.site.register(Curso, Cursos)
+
+
+class Matriculas(admin.ModelAdmin):
+    list_display = ('id', 'aluno', 'curso', 'periodo')
+    list_display_links = ('id',)
+
+
+admin.site.register(Matricula, Matriculas)
